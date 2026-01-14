@@ -1,0 +1,21 @@
+requires = ["tox>=4"]
+env_list = ["pytest_env", "unittest_env"]
+
+[env.pytest_env]
+description = "Run tests using pytest"
+package = "skip"
+deps = ["-rrequirements.txt"]
+set_env = { PYTHONPATH = ".", MPLBACKEND = "Agg" }
+allowlist_externals = ["pytest"]
+commands = [
+    ["pytest"]
+]
+
+[env.unittest_env]
+description = "Run tests using unittest"
+package = "skip"
+deps = ["-rrequirements.txt"]
+set_env = { PYTHONPATH = ".", MPLBACKEND = "Agg" }
+commands = [
+    ["python", "-m", "unittest", "discover", "tests"]
+]
